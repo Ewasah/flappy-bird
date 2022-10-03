@@ -8,21 +8,24 @@ class Birb {
 
     drawBirb() {
         fill("red");
-        circle(this.x, this.y, 10)
-    }
+        circle(this.x, this.y, 10);
 
-    if(this.y + this.h >= height) {
-    this.y = height - this.h;
+        if (this.y + this.h >= height) {
+            this.y = height - this.h;
+        }
 
-    if (this.velocity < 0) {
-        this.y += this.velocity;
-    }
-}
-
+        if (this.velocity < 0) {
+            this.y += this.velocity;
+        }
         else {
-    this.velocity += this.acceleration;
-    this.y += this.velocity;
+            this.velocity += this.acceleration;
+            this.y += this.velocity;
+        }
+    }
+
 }
+
+
 var birb;
 
 function setup() {
