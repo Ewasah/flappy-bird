@@ -3,6 +3,8 @@ var pipes = []
 
 function setup() {
     createCanvas(500, 400);
+
+    birb = new Birb(100, 200);
 }
 
 function draw() {
@@ -17,18 +19,19 @@ function draw() {
         pipes.push(new Pipe(550, topPipeHeight + gapHeight, 75, 400, "green"));
         //console.log(pipes);
     }
-
+    
     pipes.forEach((pipe) => {
         pipe.drawRect();
-    });
-    
 
+    });
+
+    birb.draw();
+    
+    
 }
 
 function keyPressed() {
-    if (keyCode == 32) {
-        birb.vy -= 5;
-    }
+  if (keyCode === 32) {
+    birb.velocity = -10;
+  }
 }
-
-
