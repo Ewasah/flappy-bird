@@ -4,16 +4,22 @@ class Pipe {
     this.y = y;
     this.w = w;
     this.h = h;
-    this.vx = -5;
+    this.vx = -4;
     this.color = color;
-
+      
     this.bottom = this.y + this.h;
   }
 
   drawRect() {
     fill(this.color);
     this.x = this.x + this.vx;
-    rect(this.x, this.y, this.w, this.h);
+    if (this.color == 'blue'){
+        //rect(this.x, this.y, this.w, this.h);
+        image(pipe2image, this.x, this.y, this.w, this.h);
+    } else{
+        //rect(this.x, this.y, this.w, this.h);
+        image(pipeimage, this.x, this.y, this.w, this.h);
+    }
   }
 
   isColliding(birb) {   
@@ -21,7 +27,8 @@ class Pipe {
     if (birb.x + birb.w > this.x && birb.x < this.x + this.w) {
       // check y-axis collision
       if (birb.y + birb.h > this.y && birb.y < this.y + this.h) {
-        return true;
+        console.log('collision');
+        death();
       }      
     }
     return false;
